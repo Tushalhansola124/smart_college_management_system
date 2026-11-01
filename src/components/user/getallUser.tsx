@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { GetUsers, IUser, SoftDeleteUser } from "./contoller";
+import { Pencil, Trash, X } from "lucide-react";
 
 const GetAllUsers = () => {
   const router = useRouter();
@@ -20,11 +20,17 @@ const GetAllUsers = () => {
   const [search, setSearch] = useState("");
   const [searchInput, setSearchInput] = useState("");
 
+  // Custom Delete Dialog
+  const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
+  const [selectedUserId, setSelectedUserId] = useState<string | null>(null);
+  const [selectedUserName, setSelectedUserName] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
   // ====================== FETCH USERS ======================
   const fetchUsers = async () => {
     try {
       setLoading(true);
-      const res = await GetUsers(page, size, search); // search pass karyu
+      const res = await GetUsers(page, size, search);
 
       setUsers(res.data.content);
       setTotalElements(res.data.totalElements);
@@ -44,33 +50,49 @@ const GetAllUsers = () => {
   // ====================== SEARCH HANDLER ======================
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    setPage(0); // search karte page reset
+    setPage(0);
     setSearch(searchInput.trim());
   };
 
-  // ====================== DELETE ======================
-  const handleDelete = async (id: string) => {
-    if (!confirm("Are you sure you want to delete this user?")) return;
+  // ====================== OPEN DELETE DIALOG ======================
+  const openDeleteDialog = (id: string, name: string) => {
+    setSelectedUserId(id);
+    setSelectedUserName(name);
+    setDeleteDialogOpen(true);
+  };
+
+  // ====================== CLOSE DELETE DIALOG ======================
+  const closeDeleteDialog = () => {
+    if (isDeleting) return;
+    setDeleteDialogOpen(false);
+    setSelectedUserId(null);
+    setSelectedUserName("");
+  };
+
+  // ====================== CONFIRM DELETE ======================
+  const handleConfirmDelete = async () => {
+    if (!selectedUserId) return;
 
     try {
-      await SoftDeleteUser(id);
+      setIsDeleting(true);
+      await SoftDeleteUser(selectedUserId);
       toast.success("User deleted successfully");
+      closeDeleteDialog();
       fetchUsers();
     } catch (error: any) {
       toast.error(error.message || "Delete failed");
+    } finally {
+      setIsDeleting(false);
     }
   };
 
   // ====================== EDIT ======================
   const handleEdit = (id: string) => {
-    router.push(`/dashboard/users/edit/${id}`);
+    router.push(`/user/userForm/${id}`);
   };
 
   return (
     <div className="p-6">
-   
-    
-
       {/* ====================== SEARCH BAR ====================== */}
       <form onSubmit={handleSearch} className="mb-6">
         <div className="flex gap-3 max-w-md">
@@ -170,15 +192,15 @@ const GetAllUsers = () => {
                     <div className="flex gap-2">
                       <button
                         onClick={() => handleEdit(user.id)}
-                        className="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1.5 rounded text-sm"
+                        className="border text-[#0D9488] border-[#8c8f8f31] hover:bg-[#0D9488] hover:text-white px-3 py-2.5 rounded-full text-sm"
                       >
-                        Edit
+                        <Pencil />
                       </button>
                       <button
-                        onClick={() => handleDelete(user.id)}
-                        className="bg-red-500 hover:bg-red-600 text-white px-3 py-1.5 rounded text-sm"
+                        onClick={() => openDeleteDialog(user.id, user.fullName)}
+                        className="border text-[#0D9488] border-[#8c8f8f31] hover:bg-[#0D9488] hover:text-white px-3 py-2.5 rounded-full text-sm"
                       >
-                        Delete
+                        <Trash />
                       </button>
                     </div>
                   </td>
@@ -217,6 +239,73 @@ const GetAllUsers = () => {
           </div>
         </div>
       </div>
+
+      {/* ====================== CUSTOM DELETE DIALOG ====================== */}
+      {deleteDialogOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
+          {/* Backdrop */}
+          <div
+            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+            onClick={closeDeleteDialog}
+          />
+
+          {/* Dialog */}
+          <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-md mx-4 p-6 animate-in fade-in zoom-in-95 duration-200">
+            {/* Close button */}
+            <button
+              onClick={closeDeleteDialog}
+              disabled={isDeleting}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors disabled:opacity-50"
+            >
+              <X size={20} />
+            </button>
+
+            {/* Icon */}
+            <div className="flex items-center justify-center w-14 h-14 mx-auto mb-4 rounded-full bg-red-100">
+              <Trash className="text-red-600" size={28} />
+            </div>
+
+            {/* Title */}
+            <h3 className="text-xl font-semibold text-center text-gray-900 mb-2">
+              Delete User
+            </h3>
+
+            {/* Description */}
+            <p className="text-center text-gray-600 mb-6">
+              Are you sure you want to delete{" "}
+              <span className="font-semibold text-gray-900">
+                {selectedUserName}
+              </span>
+              ? This action cannot be undone.
+            </p>
+
+            {/* Actions */}
+            <div className="flex gap-3">
+              <button
+                onClick={closeDeleteDialog}
+                disabled={isDeleting}
+                className="flex-1 px-4 py-2.5 border border-gray-300 rounded-lg text-gray-700 font-medium hover:bg-gray-50 transition-colors disabled:opacity-50"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleConfirmDelete}
+                disabled={isDeleting}
+                className="flex-1 px-4 py-2.5 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
+              >
+                {isDeleting ? (
+                  <>
+                    <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                    Deleting...
+                  </>
+                ) : (
+                  "Delete"
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

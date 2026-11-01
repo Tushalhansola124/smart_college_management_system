@@ -16,6 +16,7 @@ export interface IUser {
   id: string;
   fullName: string;
   email: string;
+  password:string;
   role: string;
   status: string;
   emailVerified: boolean;
@@ -165,6 +166,30 @@ export const CreateUser = async (data: CreateUserPayload) => {
   }
 };
 
+export const GetDeletedUsers = async (
+  page: number = 0,
+  size: number = 10,
+  search: string = ""
+): Promise<IUserResponse> => {
+  try {
+    const headers = await getAuthHeaders();
+
+    const response = await axiosInstance.get(
+      `${API_ENDPOINTS.user.getDeleted}?page=${page}&size=${size}&search=${search}`,
+      { headers }
+    );
+
+    return response.data;
+  } catch (error: any) {
+    console.log("GET DELETED USERS ERROR:", error);
+    throw new Error(
+      error?.response?.data?.message ||
+        error?.message ||
+        "Failed To Fetch Deleted Users"
+    );
+  }
+};
+
 // ======================================================
 // GET USER BY ID
 // ======================================================
@@ -214,7 +239,7 @@ export const UpdateUser = async (
     const headers = await getAuthHeaders();
 
     const response = await axiosInstance.put(
-      `${API_ENDPOINTS.user.update}${id}`,
+      `${API_ENDPOINTS.user.update}/${id}`,
       data,
       {
         headers,
