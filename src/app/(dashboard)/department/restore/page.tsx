@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 // app/dashboard/department/restore/page.tsx
 "use client";
 

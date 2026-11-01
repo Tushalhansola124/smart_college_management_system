@@ -1,20 +1,13 @@
 
-
+/* eslint-disable react-hooks/set-state-in-effect */
 
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
+
 import { Button } from "@/components/ui/button";
 import { Building2, ChevronLeft, ChevronRight } from "lucide-react";
-import { toast } from "sonner";
+
 
 import {
   GetDepartments,
@@ -78,7 +71,7 @@ export default function DepartmentPage() {
   };
 
   const handleDeleted = () => {
-    toast.success("List refreshed.");
+   
     fetchDepartments();
   };
 

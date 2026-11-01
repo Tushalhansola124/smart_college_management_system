@@ -3,16 +3,15 @@
 import * as React from "react"
 
 import { NavMain } from "@/components/nav-main"
-import { NavUser } from "@/components/nav-user"
 import { TeamSwitcher } from "@/components/team-switcher"
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
+
   SidebarHeader,
   SidebarRail,
 } from "@/components/ui/sidebar"
-import { BuildingComplex, GalleryVerticalEndIcon, HomeIcon, UsersIcon } from "lucide-react"
+import { BuildingComplex, CalendarDays, GalleryVerticalEndIcon, HomeIcon, NotebookDot, UsersIcon } from "lucide-react"
 
 // This is sample data.
 const data = {
@@ -48,6 +47,16 @@ const data = {
       url: "/department",
       icon: <BuildingComplex className="h-5 w-5" />,
     },
+    {
+      title: "Courses",
+      url: "/course",
+      icon: <NotebookDot className="h-5 w-5" />,
+    },
+    {
+  title: "Academic Years",
+  url: "/academic-year",
+  icon: <CalendarDays className="h-5 w-5" />,
+}
     
   ],
 }

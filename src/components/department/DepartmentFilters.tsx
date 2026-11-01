@@ -28,23 +28,24 @@ export function DepartmentFilters({
         />
       </div>
 
-      <div className="flex gap-2">
-          <Button
-          className="h-10 gap-2 rounded-lg bg-[#0D9488] text-sm font-medium shadow-sm hover:bg-[#0F766E]"
+      <div className="flex gap-2.5">
+        <Button
+          variant="outline"
+          className="h-10 gap-2 rounded-full border-[#0D9488] bg-white px-5 text-sm font-medium text-[#0D9488] shadow-sm transition-colors hover:bg-[#0D9488] hover:text-white"
           onClick={() => router.push("/department/create")}
         >
           <Plus className="h-4 w-4" />
           Add Department
         </Button>
+
         <Button
           variant="outline"
-          className="h-10 gap-2 rounded-lg border-slate-200 bg-white text-sm font-medium text-slate-700 shadow-sm hover:bg-slate-50"
+          className="h-10 gap-2 rounded-full border-[#0D9488] bg-white px-5 text-sm font-medium text-[#0D9488] shadow-sm transition-colors hover:bg-[#0D9488] hover:text-white"
           onClick={() => router.push("/department/restore")}
         >
           <RotateCcw className="h-4 w-4" />
           Restore Departments
         </Button>
-      
       </div>
     </div>
   );

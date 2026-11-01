@@ -1,4 +1,5 @@
 
+
 "use server";
 
 import { API_ENDPOINTS } from "@/app/core/constants/api_endpoint";
@@ -85,10 +86,15 @@ const axiosInstance = axios.create({
 // TOKEN HELPER
 // ======================================================
 
+interface IAuthUser {
+  accessToken?: string;
+}
+
 const getAuthHeaders = async () => {
   const session = await getServerSession(authOptions);
 
-  const token = (session?.user as any)?.accessToken;
+  const user = session?.user as IAuthUser | undefined;
+  const token = user?.accessToken;
 
   if (!token) {
     throw new Error("Unauthorized. Please login again.");
