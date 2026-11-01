@@ -49,7 +49,7 @@ export function DepartmentView({ department }: DepartmentViewProps) {
   return (
     <Card className="mx-auto w-full max-w-9xl overflow-hidden rounded-2xl border-slate-200 shadow-md">
       {/* Header section with distinct styling */}
-      <div className="border-b border-slate-100 bg-gradient-to-r from-slate-50 to-white p-6 sm:p-8">
+      <div className="border-b border-slate-100 bg-linear-to-r from-slate-50 to-white p-6 sm:p-8">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="space-y-1">
             <h2 className="text-2xl font-bold tracking-tight text-slate-900">
