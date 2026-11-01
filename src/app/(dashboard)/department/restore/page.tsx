@@ -240,7 +240,7 @@ export default function RestoreDepartmentsPage() {
     if (!isOpen && !isRestoring) setSelectedDept(null);
   }}
 >
-  <AlertDialogContent className="w-[calc(100%-2rem)] max-w-[360px] overflow-hidden rounded-2xl border-0 bg-white p-0 shadow-xl">
+  <AlertDialogContent className="w-[calc(100%-2rem)] max-w-90 overflow-hidden rounded-2xl border-0 bg-white p-0 shadow-xl">
     
     {/* Header */}
     <div className="flex flex-col items-center px-6 pt-8 pb-4 text-center">

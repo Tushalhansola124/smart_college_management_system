@@ -133,7 +133,7 @@ export function DepartmentTable({
                 </Badge>
               </TableCell>
 
-              <TableCell className="max-w-[260px] truncate py-3.5 text-slate-500">
+              <TableCell className="max-w-65 truncate py-3.5 text-slate-500">
                 {dept.description || "-"}
               </TableCell>
 
