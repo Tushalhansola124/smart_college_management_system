@@ -22,16 +22,26 @@ const UserComp = () => {
         {/* Right Side Buttons */}
         <div className="flex items-center gap-3">
           <button
+<<<<<<< HEAD
             onClick={() => router.push("/user/create")}
             className="inline-flex text-[#0D9488] items-center border border-[#0D9488] gap-2 bg-white  hover:text-white hover:bg-linear-to-r from-[#0F766E] to-[#28c2b5] hover:border-none px-4 py-2  rounded-full font-medium"
+=======
+            onClick={() => router.push("/dashboard/users/create")}
+            className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition"
+>>>>>>> 9c2fdab2d7cf0292b157c760ddd4b010d05efaf2
           >
             <Plus className="w-4 h-4" />
             Add User
           </button>
 
           <button
+<<<<<<< HEAD
             onClick={() => router.push("/user/deleted")}
             className="inline-flex text-[#0D9488] items-center border border-[#0D9488] gap-2 bg-white  hover:bg-linear-to-r from-[#0F766E] to-[#28c2b5] hover:text-white hover:border-none px-4 py-2 rounded-full font-medium "
+=======
+            onClick={() => router.push("/dashboard/users/deleted")}
+            className="inline-flex items-center gap-2 bg-red-100 hover:bg-red-200 text-red-700 px-4 py-2 rounded-lg font-medium transition"
+>>>>>>> 9c2fdab2d7cf0292b157c760ddd4b010d05efaf2
           >
          <Trash2 className="w-4 h-4" />
             Deleted Users
