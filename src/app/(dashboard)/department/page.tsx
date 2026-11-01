@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
@@ -75,7 +76,7 @@ export default function DepartmentPage() {
   };
 
   const handleDeleted = () => {
-    toast.success("List refreshed.");
+   
     fetchDepartments();
   };
 

@@ -93,7 +93,7 @@ export default function EditDepartmentPage() {
               Edit Department
             </h1>
             <p className="mt-1.5 text-sm text-slate-500">
-              Update the academic department's core information and settings.
+              Update the academic departments core information and settings.
             </p>
           </div>
         </div>

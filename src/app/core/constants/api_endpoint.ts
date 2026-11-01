@@ -19,5 +19,13 @@ export const API_ENDPOINTS = {
     getDeleted: "/api/departments/deleted",
     restore: "/api/departments/",
   },
+  academicYear: {
+  getAll: "/api/academic-years",
+  create: "/api/academic-years",
+  getById: "/api/academic-years/",
+  update: "/api/academic-years/",
+  softDelete: "/api/academic-years/",
+  getDeleted: "/api/academic-years/deleted",
+},
 
 };
