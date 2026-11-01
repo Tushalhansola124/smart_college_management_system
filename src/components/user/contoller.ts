@@ -133,8 +133,32 @@ export const GetUsers = async (
   }
 };
 
+export const GetDeletedUsers = async (
+  page: number = 0,
+  size: number = 10,
+  search: string = ""
+): Promise<IUserResponse> => {
+  try {
+    const headers = await getAuthHeaders();
+
+    const response = await axiosInstance.get(
+      `${API_ENDPOINTS.user.getAll}?page=${page}&size=${size}&search=${search}`,
+      { headers }
+    );
+
+    return response.data;
+  } catch (error: any) {
+    console.log("GET USERS ERROR:", error);
+    throw new Error(
+      error?.response?.data?.message ||
+        error?.message ||
+        "Failed To Fetch Users"
+    );
+  }
+};
+
 // ======================================================
-// CREATE USER
+// CREATE USER 
 // ======================================================
 
 export const CreateUser = async (data: CreateUserPayload) => {
