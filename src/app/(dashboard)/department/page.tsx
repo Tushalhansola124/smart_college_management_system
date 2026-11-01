@@ -1,14 +1,6 @@
-<<<<<<< HEAD
-import React from 'react'
 
-const Department = () => {
-  return (
-    <div>Department</div>
-  )
-}
 
-export default Department
-=======
+
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
@@ -181,4 +173,4 @@ export default function DepartmentPage() {
     </div>
   );
 }
->>>>>>> 9c2fdab2d7cf0292b157c760ddd4b010d05efaf2
+

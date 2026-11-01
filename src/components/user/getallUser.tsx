@@ -1,17 +1,11 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-<<<<<<< HEAD
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
-import { GetUsers, IUser, SoftDeleteUser } from "./contoller";
-import { Pencil, Trash, X } from "lucide-react";
-=======
 
-import { useRouter } from "next/navigation";
-import { toast } from "sonner";
+import { Pencil, Trash, X } from "lucide-react";
 import { GetUsers, IUser, SoftDeleteUser } from "./contoller";
->>>>>>> 9c2fdab2d7cf0292b157c760ddd4b010d05efaf2
 
 const GetAllUsers = () => {
   const router = useRouter();
@@ -27,24 +21,17 @@ const GetAllUsers = () => {
   const [search, setSearch] = useState("");
   const [searchInput, setSearchInput] = useState("");
 
-<<<<<<< HEAD
   // Custom Delete Dialog
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [selectedUserId, setSelectedUserId] = useState<string | null>(null);
   const [selectedUserName, setSelectedUserName] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
 
-=======
->>>>>>> 9c2fdab2d7cf0292b157c760ddd4b010d05efaf2
   // ====================== FETCH USERS ======================
   const fetchUsers = async () => {
     try {
       setLoading(true);
-<<<<<<< HEAD
       const res = await GetUsers(page, size, search);
-=======
-      const res = await GetUsers(page, size, search); // search pass karyu
->>>>>>> 9c2fdab2d7cf0292b157c760ddd4b010d05efaf2
 
       setUsers(res.data.content);
       setTotalElements(res.data.totalElements);
@@ -64,7 +51,6 @@ const GetAllUsers = () => {
   // ====================== SEARCH HANDLER ======================
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-<<<<<<< HEAD
     setPage(0);
     setSearch(searchInput.trim());
   };
@@ -98,42 +84,16 @@ const GetAllUsers = () => {
       toast.error(error.message || "Delete failed");
     } finally {
       setIsDeleting(false);
-=======
-    setPage(0); // search karte page reset
-    setSearch(searchInput.trim());
-  };
-
-  // ====================== DELETE ======================
-  const handleDelete = async (id: string) => {
-    if (!confirm("Are you sure you want to delete this user?")) return;
-
-    try {
-      await SoftDeleteUser(id);
-      toast.success("User deleted successfully");
-      fetchUsers();
-    } catch (error: any) {
-      toast.error(error.message || "Delete failed");
->>>>>>> 9c2fdab2d7cf0292b157c760ddd4b010d05efaf2
     }
   };
 
   // ====================== EDIT ======================
   const handleEdit = (id: string) => {
-<<<<<<< HEAD
-    router.push(`/user/userForm/${id}`);
-=======
-    router.push(`/dashboard/users/edit/${id}`);
->>>>>>> 9c2fdab2d7cf0292b157c760ddd4b010d05efaf2
+    router.push(`/user/edit/${id}`);
   };
 
   return (
     <div className="p-6">
-<<<<<<< HEAD
-=======
-   
-    
-
->>>>>>> 9c2fdab2d7cf0292b157c760ddd4b010d05efaf2
       {/* ====================== SEARCH BAR ====================== */}
       <form onSubmit={handleSearch} className="mb-6">
         <div className="flex gap-3 max-w-md">
@@ -233,7 +193,6 @@ const GetAllUsers = () => {
                     <div className="flex gap-2">
                       <button
                         onClick={() => handleEdit(user.id)}
-<<<<<<< HEAD
                         className="border text-[#0D9488] border-[#8c8f8f31] hover:bg-[#0D9488] hover:text-white px-3 py-2.5 rounded-full text-sm"
                       >
                         <Pencil />
@@ -243,17 +202,6 @@ const GetAllUsers = () => {
                         className="border text-[#0D9488] border-[#8c8f8f31] hover:bg-[#0D9488] hover:text-white px-3 py-2.5 rounded-full text-sm"
                       >
                         <Trash />
-=======
-                        className="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1.5 rounded text-sm"
-                      >
-                        Edit
-                      </button>
-                      <button
-                        onClick={() => handleDelete(user.id)}
-                        className="bg-red-500 hover:bg-red-600 text-white px-3 py-1.5 rounded text-sm"
-                      >
-                        Delete
->>>>>>> 9c2fdab2d7cf0292b157c760ddd4b010d05efaf2
                       </button>
                     </div>
                   </td>
@@ -292,7 +240,6 @@ const GetAllUsers = () => {
           </div>
         </div>
       </div>
-<<<<<<< HEAD
 
       {/* ====================== CUSTOM DELETE DIALOG ====================== */}
       {deleteDialogOpen && (
@@ -304,7 +251,7 @@ const GetAllUsers = () => {
           />
 
           {/* Dialog */}
-          <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-md mx-4 p-6 animate-in fade-in zoom-in-95 duration-200">
+          <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-md mx-4 p-6">
             {/* Close button */}
             <button
               onClick={closeDeleteDialog}
@@ -360,8 +307,6 @@ const GetAllUsers = () => {
           </div>
         </div>
       )}
-=======
->>>>>>> 9c2fdab2d7cf0292b157c760ddd4b010d05efaf2
     </div>
   );
 };
