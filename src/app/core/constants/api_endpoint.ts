@@ -8,7 +8,11 @@ export const API_ENDPOINTS = {
   update:"/api/users",
   getById:"/api/users/",
   restore:"/api/users/",
+<<<<<<< HEAD
   getDeleted:"/api/users/deleted",
+=======
+  getDeleted:"/api/users",
+>>>>>>> 25961e68fe701f6d57104ac1b0fb726e1ed647f6
   softDelete:"/api/users/"
  },
  course:{
@@ -37,6 +41,7 @@ export const API_ENDPOINTS = {
   softDelete: "/api/academic-years/",
   getDeleted: "/api/academic-years/deleted",
 },
+<<<<<<< HEAD
 courseSections:{
   getAll:"/api/class-sections",
   create:"/api/class-sections",
@@ -47,6 +52,9 @@ courseSections:{
   getDeleted:"/api/class-sections/deleted",
 
 },
+=======
+
+>>>>>>> 25961e68fe701f6d57104ac1b0fb726e1ed647f6
 semester: {
   getAll: "/api/semesters",
   create: "/api/semesters",
@@ -56,5 +64,31 @@ semester: {
   getDeleted: "/api/semesters/deleted",
   restore: "/api/semesters/",
 },
+<<<<<<< HEAD
+=======
+faculty: {
+  getAll: "/api/faculties",
+  create: "/api/faculties",
+  getById: "/api/faculties/",
+  update: "/api/faculties/",
+  softDelete: "/api/faculties/",
+  getDeleted: "/api/faculties/deleted",
+  restore: "/api/faculties/",
+},
+classSection: {
+  getAll: "/api/class-sections",
+  create: "/api/class-sections",
+  getById: "/api/class-sections/",
+  update: "/api/class-sections/",
+  softDelete: "/api/class-sections/",
+  getDeleted: "/api/class-sections/deleted",
+  restore: "/api/class-sections/",
+  updateStatus: "/api/class-sections/",
+  byAcademicYear: "/api/class-sections/academic-year/",
+  bySemester: "/api/class-sections/semester/",
+  byCourse: "/api/class-sections/course/",
+  byDepartment: "/api/class-sections/department/",
+},
+>>>>>>> 25961e68fe701f6d57104ac1b0fb726e1ed647f6
 
 };
