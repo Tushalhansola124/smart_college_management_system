@@ -47,5 +47,14 @@ semester: {
   getDeleted: "/api/semesters/deleted",
   restore: "/api/semesters/",
 },
+faculty: {
+  getAll: "/api/faculties",
+  create: "/api/faculties",
+  getById: "/api/faculties/",
+  update: "/api/faculties/",
+  softDelete: "/api/faculties/",
+  getDeleted: "/api/faculties/deleted",
+  restore: "/api/faculties/",
+},
 
 };
