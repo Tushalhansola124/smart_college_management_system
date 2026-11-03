@@ -1,4 +1,4 @@
-
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use server";
 
 import { API_ENDPOINTS } from "@/app/core/constants/api_endpoint";

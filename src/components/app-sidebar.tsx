@@ -11,7 +11,7 @@ import {
   SidebarHeader,
   SidebarRail,
 } from "@/components/ui/sidebar"
-import { BuildingComplex, CalendarDays, GalleryVerticalEndIcon, HomeIcon, NotebookDot, NotepadTextDashed, UsersIcon } from "lucide-react"
+import { BuildingComplex, CalendarDays, ContactRound, GalleryVerticalEndIcon, GraduationCap, HomeIcon, NotebookDot, UsersIcon } from "lucide-react"
 
 // This is sample data.
 const data = {
@@ -20,18 +20,18 @@ const data = {
     email: "m@example.com",
     avatar: "/avatars/shadcn.jpg",
   },
-  teams: [
+   teams: [
     {
       name: "Acme Inc",
       logo: (
-        <GalleryVerticalEndIcon />
-
+        <GalleryVerticalEndIcon/>
+        
       ),
       plan: "Enterprise",
     },
   ],
-
-  navMain: [
+ 
+ navMain: [
     {
       title: "Dashboard",
       url: "/dashboard",
@@ -42,7 +42,7 @@ const data = {
       url: "/user",
       icon: <UsersIcon className="h-5 w-5" />,
     },
-    {
+      {
       title: "Department",
       url: "/department",
       icon: <BuildingComplex className="h-5 w-5" />,
@@ -53,16 +53,25 @@ const data = {
       icon: <NotebookDot className="h-5 w-5" />,
     },
     {
-      title: "Courses Sections",
-      url: "/course-sections",
-      icon: <NotepadTextDashed  className="h-5 w-5" />,
+  title: "Academic Years",
+  url: "/academic-year",
+  icon: <CalendarDays className="h-5 w-5" />,
+},
+ {
+      title: "Semesters",
+      url: "/semester",
+      icon: <GraduationCap className="h-5 w-5" />,
     },
     {
-      title: "Academic Years",
-      url: "/academic-year",
-      icon: <CalendarDays className="h-5 w-5" />,
-    }
-
+  title: "Faculty",
+  url: "/faculty",
+  icon: <ContactRound className="h-5 w-5" />,
+},
+    {
+  title: "Class Section",
+  url: "/class-section",
+  icon: <GraduationCap className="h-5 w-5" />,
+}
   ],
 }
 
@@ -74,7 +83,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-
+       
       </SidebarContent>
       {/* <SidebarFooter>
         <NavUser user={data.user} />
