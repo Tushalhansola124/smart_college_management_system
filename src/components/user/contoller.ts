@@ -142,11 +142,10 @@ export const GetDeletedUsers = async (
     const headers = await getAuthHeaders();
 
     const response = await axiosInstance.get(
-<<<<<<< HEAD
+
       `${API_ENDPOINTS.user.getDeleted}?page=${page}&size=${size}&search=${search}`,
-=======
-      `${API_ENDPOINTS.user.getAll}?page=${page}&size=${size}&search=${search}`,
->>>>>>> 25961e68fe701f6d57104ac1b0fb726e1ed647f6
+
+
       { headers }
     );
 
