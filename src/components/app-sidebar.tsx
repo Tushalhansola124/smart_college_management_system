@@ -67,7 +67,11 @@ const data = {
   url: "/faculty",
   icon: <ContactRound className="h-5 w-5" />,
 },
-    
+    {
+  title: "Class Section",
+  url: "/class-section",
+  icon: <GraduationCap className="h-5 w-5" />,
+}
   ],
 }
 

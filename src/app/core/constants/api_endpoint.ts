@@ -56,5 +56,19 @@ faculty: {
   getDeleted: "/api/faculties/deleted",
   restore: "/api/faculties/",
 },
+classSection: {
+  getAll: "/api/class-sections",
+  create: "/api/class-sections",
+  getById: "/api/class-sections/",
+  update: "/api/class-sections/",
+  softDelete: "/api/class-sections/",
+  getDeleted: "/api/class-sections/deleted",
+  restore: "/api/class-sections/",
+  updateStatus: "/api/class-sections/",
+  byAcademicYear: "/api/class-sections/academic-year/",
+  bySemester: "/api/class-sections/semester/",
+  byCourse: "/api/class-sections/course/",
+  byDepartment: "/api/class-sections/department/",
+},
 
 };
