@@ -11,6 +11,15 @@ export const API_ENDPOINTS = {
   getDeleted:"/api/users",
   softDelete:"/api/users/"
  },
+ courseSections:{
+  getAll: "/api/class-sections",
+  create: "/api/class-sections",
+  getById: "/api/class-sections/",
+  update: "/api/class-sections/",
+  softDelete: "/api/class-sections/",
+  getDeleted: "/api/class-sections/deleted",
+  restore: "/api/class-sections/",
+ },
  course:{
   create:"/api/courses",
   getAll:"/api/courses",
