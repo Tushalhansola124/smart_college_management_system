@@ -79,5 +79,15 @@ classSection: {
   byCourse: "/api/class-sections/course/",
   byDepartment: "/api/class-sections/department/",
 },
+subject:{
+  getAll:"/api/subjects",
+  create:"/api/subjects",
+  getById:"/api/subjects/",
+  update:"/api/subjects/",
+  softDelete:"/api/subjects/",
+  getDeleted:"/api/subjects/deleted",
+  restore:"/api/subjects/",
+
+}
 
 };

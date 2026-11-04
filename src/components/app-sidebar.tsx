@@ -11,7 +11,7 @@ import {
   SidebarHeader,
   SidebarRail,
 } from "@/components/ui/sidebar"
-import { BookCheck, BuildingComplex, CalendarDays, ContactRound, GalleryVerticalEndIcon, GraduationCap, HomeIcon, NotebookDot, UsersIcon } from "lucide-react"
+import { BookA, BookCheck, BuildingComplex, CalendarDays, ContactRound, GalleryVerticalEndIcon, GraduationCap, HomeIcon, NotebookDot, UsersIcon } from "lucide-react"
 
 // This is sample data.
 const data = {
@@ -57,6 +57,11 @@ const data = {
   url: "/academic-year",
   icon: <CalendarDays className="h-5 w-5" />,
 },
+ {
+      title: "Subject",
+      url: "/subject",
+      icon: <BookA className="h-5 w-5" />,
+    },
  {
       title: "Semesters",
       url: "/semester",
