@@ -17,7 +17,7 @@ const UpdateForm = () => {
         <div>
           <h1 className="text-2xl font-bold text-gray-800">Update Courses</h1>
           <p className="text-sm text-gray-500 mt-1">
-            Manage all deleted courses from here.
+            Manage all Edit courses from here.
           </p>
         </div>
 

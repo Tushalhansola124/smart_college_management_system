@@ -14,11 +14,11 @@
 "use client";
 
 import DeletedClassSections from "@/components/course-section/deletedCourse";
-import GetDeletedCoursesComponent from "@/components/course/getDeleted";
+
 import { MoveLeft  } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-const DeletedCourseSections = () => {
+const DeletedStudentSections = () => {
   const router = useRouter();
 
   return (
@@ -53,4 +53,4 @@ const DeletedCourseSections = () => {
   );
 };
 
-export default DeletedCourseSections;
+export default DeletedStudentSections;

@@ -1,7 +1,6 @@
 "use client";
 
 import GetAllCourses from "@/components/course/getAllCourse";
-import GetAllUsers from "@/components/user/getallUser";
 import { Plus, Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 

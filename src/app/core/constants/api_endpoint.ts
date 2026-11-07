@@ -87,7 +87,23 @@ subject:{
   softDelete:"/api/subjects/",
   getDeleted:"/api/subjects/deleted",
   restore:"/api/subjects/",
-
+},
+student:{
+  getAll:"/api/students",
+  create:"/api/students",
+  getById:"/api/students/",
+  update:"/api/students/",
+  softDelete:"/api/students/",
+  getDeleted:"/api/students/deleted",
+  restore:"/api/students/",
+},
+assignment:{
+  getAll:"/api/assignments",
+  create:"/api/assignments",
+  getById:"/api/assignments/",
+  update:"/api/assignments/",
+  softDelete:"/api/assignments/",
+  getDeleted:"/api/assignments/deleted",
+  restore:"/api/assignments/",
 }
-
 };
